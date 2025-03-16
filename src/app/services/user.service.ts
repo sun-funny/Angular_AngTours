@@ -3,6 +3,7 @@ import { IUser } from "../models/user";
 import { IUserRegister } from "../models/user";
 import { HttpClient } from "@angular/common/http";
 import { API } from "../shared/api";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -29,8 +30,8 @@ export class UserService {
         return !!this.getUser(login);
     }
 
-    registerUser(user: IUserRegister): void {
-        this.http.post(API.registration, user).subscribe();
+    registerUser(user: IUserRegister): Observable<string> {
+        return this.http.post('http://localhost:3000/register', user, {responseType: 'text'});
     }
 
     authUser(user: IUser): void {

@@ -21,7 +21,7 @@ export class AuthtorizationComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {}
 
-  onAuth(ev: Event): void{
+  onAuth(): void{
 
     const user: IUser = {
       login: this.login,

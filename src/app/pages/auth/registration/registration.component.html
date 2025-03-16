@@ -47,7 +47,7 @@
         <p-button
             label="Sign Up"
             [disabled]="!login || !password || login.length < 3 || password.length < 6 || password!=repeatPassword"
-            (Click)="onAuth($event)"
+            (click)="onAuth()"
         ></p-button>
     </div>
 </div>
