@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IUser } from '../../../models/user';
+import { IUser, IUserRegister } from '../../../models/user';
 
 import { CheckboxModule } from 'primeng/checkbox';
 import { UserService } from '../../../services/user.service';
@@ -31,6 +31,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onAuth(ev: Event): void{
-    this.userService.addUser({login: this.login, password: this.password})
+    const postObj = {login: this.login, password: this.password, email: this.email} as IUserRegister;
+    this.userService.registerUser(postObj)
   }
 }
