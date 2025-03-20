@@ -4,7 +4,7 @@ const express = require('express');
 const { log } = require('console');
  
 // user
-const userJson = "./server-data/user.json";
+const userJson = "./server-data/users.json";
 const toursJson = "./server-data/tours.json";
 const jsonFileData =  fs.readFileSync(userJson, 'utf-8');
 let  parseJsonData = JSON.parse(jsonFileData);
@@ -35,7 +35,7 @@ app.post('/register', (req, res) => {
             });
  
             // send response
-            res.send('ok');
+            res.send("ok");
         } else {
           throw new Error('Пользователь уже зарегестрирован');
         }
@@ -81,20 +81,32 @@ app.post('/auth', (req, res) => {
   })
  
  
-// run and listen serve
-app.listen(port, () => {
-  console.log(`app listening on port ${port}`)
-})
-
-//===== tours=====
-app.get('/tous', (req, res) => {
-  const jsonFileData = fs.readFileSync(toursJson, 'utf-8', (err, data) => {}, (err) => {
-    console.log('err read file tours', err);
+  //************** */ tours**************************************
+ 
+  app.get('/tours', (req, res) => { 
+    const jsonFileData =  fs.readFileSync(toursJson, 'utf-8', (err, data) => {}, (err) => {
+      console.log('err read file tours', err);});
+    res.send(jsonFileData);
   });
-  res.send(jsonFileData);
-
-});
-
+ 
+  /*******************get tour */
+  app.get('/tour/:id', (req, res) => { 
+    const jsonFileData =  fs.readFileSync(toursJson, 'utf-8', (err, data) => {}, (err) => {
+      console.log('err read file tours', err);});
+              // parse data
+      const  parseJsonData = JSON.parse(jsonFileData);
+      const paramId = req.params.id;
+ 
+ 
+      const item = parseJsonData.tours.find((tour) => tour.id === paramId);
+      if (item) {
+        res.send(item);
+      } else {
+        throw new Error('Тур не найден по id:', paramId);
+      }
+  });
+ 
+// run and listen serve
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 })
