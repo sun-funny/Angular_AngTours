@@ -18,20 +18,23 @@ export class AuthtorizationComponent implements OnInit, OnDestroy{
   login: string;
   password: string;
   constructor(private userService: UserService,
-      private messageService: MessageService,
-              private router: Router
-  ) {
-  }
+      private router: Router,
+      private messageService: MessageService
+  ) {  }
+
   ngOnInit(): void {}
 
   ngOnDestroy(): void {}
 
-  onAuth(): void{
-
-    const user = {login: this.login, password: this.password} as IUser;
-
+  onAuth(): void {
+    const user: IUser = {
+      login: this.login, 
+      password: this.password
+    }
     this.userService.authUser(user).subscribe({
-      next: () => {this.router.navigate(['tours']);},
+      next: () => {
+        this.userService.setUser(user);
+        this.router.navigate(['tours']);},
       error: () => {this.initToast('error', 'Неверный логин или пароль');}
     })
 

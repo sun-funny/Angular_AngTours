@@ -9,8 +9,14 @@ import { Observable } from "rxjs";
 
 export class ToursService {
     constructor(private http: HttpClient) {}
-        getTours(): Observable<any> {
+
+    getTours(): Observable<any> {
             return this.http.get(API.tours);
         }
+    
+    getTourById(id: string): Observable<any> {
+        const path = API.tour+'/'+id;
+        return this.http.get(`${API.tour}/${id}`)
+    }
     
 }
