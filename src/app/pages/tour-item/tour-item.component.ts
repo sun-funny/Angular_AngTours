@@ -22,6 +22,14 @@ export class TourItemComponent implements OnInit {
     this.tourId = this.route.snapshot.paramMap.get('id');
     console.log('tourId', this.tourId)
 
+    // Загружаем тур по полученному ID
+    this.tourService.getTours().subscribe((data) => {
+      if (Array.isArray(data?.tours)) {
+        this.tour = data.tours.find(tour => tour.id === this.tourId);
+        console.log('Found tour:', this.tour);
+      }
+    });
+    
     this.route.queryParamMap.subscribe((par) => {
       console.log('***', par)
     })
