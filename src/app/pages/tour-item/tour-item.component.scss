@@ -2,8 +2,13 @@
     display: block;
   }
   
-  .tours-list {
-    & .tour-item {
-      position: relative;
+  .tour-item-wrap {
+    & > div {
+      width: 50%;
+    }
+
+    & .nearest-tour {
+      display: flex;
+      justify-content: center;
     }
   }
