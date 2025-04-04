@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { API } from "../shared/api";
 import { Observable } from "rxjs";
-import { ITour } from "../models/tours";
+import { ITour, ITourServerResponse } from "../models/tours";
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +11,8 @@ import { ITour } from "../models/tours";
 export class ToursService {
     constructor(private http: HttpClient) {}
 
-    getTours(): Observable<any> {
-            return this.http.get(API.tours);
+    getTours(): Observable<ITourServerResponse> {
+            return this.http.get<ITourServerResponse>(API.tours);
         }
     
     getTourById(id: string): Observable<ITour> {
