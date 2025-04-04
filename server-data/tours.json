@@ -77,22 +77,6 @@
             "img": "Japan.jpg"
         },
         {
-            "id": "9-1",
-            "name": "Japan One Life Adventures - 10 Days",
-            "description": "Tokyo, Hakone, Takayama, Kyoto, Osaka",
-            "tourOperator": "LocalAdventures",
-            "price": "€1,192",
-            "img": "Japan-1.jpg"
-        },
-        {
-            "id": "9-2",
-            "name": "Japan One Life Adventures - 10 Days",
-            "description": "Tokyo, Hakone, Takayama, Kyoto, Osaka",
-            "tourOperator": "LocalAdventures",
-            "price": "€1,192",
-            "img": "Japan-2.jpg"
-        },
-        {
             "id": "10",
             "name": "Mauritius",
             "description": "From the south to the center of the country",
