@@ -17,5 +17,6 @@ export const routes: Routes = [
             { path: 'tour/:id', component: TourItemComponent}
         ]
      },
+
     {path: '**', redirectTo: '/auth', pathMatch: 'full'  },  
 ];
