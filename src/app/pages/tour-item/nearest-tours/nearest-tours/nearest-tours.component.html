@@ -4,12 +4,12 @@ class = "tour-item-galleria"
 [value]="toursArr()" 
 [showIndicators]="true" 
 [showThumbnails]="false" 
-[containerStyle]="{ 'max-width': '340px' }"
+[containerStyle]="{ 'max-width': '640px' }"
 >
 
     <ng-template #item let-item>
         <img 
-        [src]="'/img/'+ item.img" 
+        [ngSrc]="'/img/'+ item.img" priority fill 
         style="width: 100%; display: block;" />
     </ng-template>
 

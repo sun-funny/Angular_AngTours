@@ -9,10 +9,18 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ITour } from '../../models/tours';
 import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-tours',
-  imports: [CardModule, InputGroupAddonModule, InputGroupModule, ButtonModule, InputTextModule, SearchPipe, FormsModule],
+  imports: [
+    CardModule, 
+    InputGroupAddonModule, 
+    InputGroupModule, 
+    ButtonModule, 
+    InputTextModule, 
+    SearchPipe, 
+    FormsModule],
   templateUrl: './tours.component.html',
   styleUrl: './tours.component.scss'
 })
