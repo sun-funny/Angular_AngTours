@@ -24,7 +24,7 @@
     
     <div class="nearest-tour flex justify-content-center">
         <app-nearest-tours 
-        type="test"
+        (onTourChange)="onTourChanges($event)"
         [tourNearest]="tour" />
     </div>
 </div>
